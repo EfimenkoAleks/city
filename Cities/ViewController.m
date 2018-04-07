@@ -26,9 +26,38 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.countrys=@[@"Ukraine",@"Belarus",@"Poland",@"Georgia"];
-   // self.regions=@[@"nul"];
-   // self.citys=@[@"nul"];
+    //self.countrys=@[@"Ukraine",@"Belarus",@"Poland",@"Georgia"];
+    
+    Region *zaporozhkaya=[[Region alloc]initWithName:@"Zaporozhskaya"];
+    [zaporozhkaya.nameCitys addObject:@"Zaporozhye"];
+    [zaporozhkaya.nameCitys addObject:@"Vasilevka"];
+    [zaporozhkaya.nameCitys addObject:@"Berdyansk"];
+    [zaporozhkaya.nameCitys addObject:@"Melitopol"];
+    
+    Region *dneprovska=[[Region alloc]initWithName:@"Dneprovskaya"];
+    [zaporozhkaya.nameCitys addObject:@"Dnieper"];
+    [zaporozhkaya.nameCitys addObject:@"Krivoy_Rog"];
+    [zaporozhkaya.nameCitys addObject:@"Nikopol"];
+    [zaporozhkaya.nameCitys addObject:@"Marganets"];
+    
+    Region *xarkovska=[[Region alloc]initWithName:@"Kharkivska"];
+    [zaporozhkaya.nameCitys addObject:@"Kharkiv"];
+    [zaporozhkaya.nameCitys addObject:@"Chuguyev"];
+    [zaporozhkaya.nameCitys addObject:@"Izyum"];
+    [zaporozhkaya.nameCitys addObject:@"Lyubotin"];
+    
+    Region *kievska=[[Region alloc]initWithName:@"Kievskaya"];
+    [zaporozhkaya.nameCitys addObject:@"Kiev"];
+    [zaporozhkaya.nameCitys addObject:@"Boryspil"];
+    [zaporozhkaya.nameCitys addObject:@"Obuhov"];
+    [zaporozhkaya.nameCitys addObject:@"Pripyat"];
+    
+    Country *ukraine=[[Country alloc]initWithName:@"Ukraine"];
+    [ukraine.nameRegions addObject:zaporozhkaya.name];
+    [ukraine.nameRegions addObject:dneprovska.name];
+    [ukraine.nameRegions addObject:xarkovska.name];
+    [ukraine.nameRegions addObject:kievska.name];
+    
     self.countriPicker.dataSource=self;
     self.countriPicker.delegate=self;
     self.compHeight=0;
@@ -61,20 +90,16 @@
 
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
     NSString *rowv;
-    self.compHeight=component;
-    self.rowWidth=row;
-    if(self.compHeight==0){
-        rowv= self.countrys[self.rowWidth];
-        [self rowRegion:self.rowWidth];
-        [self rowCity:[self rowRegion:self.rowWidth]];
+    if(component==0){
+        rowv= self.countrys[row];
+//        [self rowRegion:self.rowWidth];
+//        [self rowCity:[self rowRegion:self.rowWidth]];
     }
-    if(self.compHeight==1){
-         rowv= self.regions[self.rowWidth];
- 
-   //      [self rowCity:row];
+    if(component==1){
+         rowv= self.regions[row];
     }
-    if(self.compHeight==2){
-         rowv= self.citys[self.rowWidth];
+    if(component==2){
+         rowv= self.citys[row];
     }
     return rowv;
 }
@@ -91,60 +116,60 @@
     }
 }
 
--(NSInteger)rowRegion:(NSInteger)rowNumber{
-    NSInteger buf=0;
-    switch (rowNumber) {
-        case 0:
-            {
-                self.regions=@[@"Zaporozka",@"Xarkovska",@"Dneprovska",@"Kievska"];
-            }
-            buf=0;
-            break;
-        case 1:
-        {
-            self.regions=@[@"Belaruska",@"Belaruska",@"Belaruska",@"Belaruska"];
-        }
-            buf=1;
-            break;
-        case 2:
-        {
-            self.regions=@[@"Polska",@"Polska",@"Polska",@"Polska"];
-        }
-            buf=2;
-            break;
-        case 3:
-        {
-            self.regions=@[@"Gruzinska",@"Gruzinska",@"Gruzinska",@"Gruzinska"];
-        }
-            buf=3;
-            break;
-    }
-    return buf;
-}
-
--(void)rowCity:(NSInteger)rowNumber{
-    switch (rowNumber) {
-        case 0:
-        {
-            self.citys=@[@"Zaporoziza",@"Melitopol",@"Vasilivka",@"Berdansk"];
-        }
-            break;
-        case 1:
-        {
-            self.citys=@[@"Belarus",@"Belarus",@"Belarus",@"Belarus"];
-        }
-            break;
-        case 2:
-        {
-            self.citys=@[@"Pols",@"Pols",@"Pols",@"Pols"];
-        }
-            break;
-        case 3:
-        {
-            self.citys=@[@"Gruzins",@"Gruzins",@"Gruzins",@"Gruzins"];
-        }
-            break;
-    }
-}
+//-(NSInteger)rowRegion:(NSInteger)rowNumber{
+//    NSInteger buf=0;
+//    switch (rowNumber) {
+//        case 0:
+//            {
+//                self.regions=@[@"Zaporozka",@"Xarkovska",@"Dneprovska",@"Kievska"];
+//            }
+//            buf=0;
+//            break;
+//        case 1:
+//        {
+//            self.regions=@[@"Belaruska",@"Belaruska",@"Belaruska",@"Belaruska"];
+//        }
+//            buf=1;
+//            break;
+//        case 2:
+//        {
+//            self.regions=@[@"Polska",@"Polska",@"Polska",@"Polska"];
+//        }
+//            buf=2;
+//            break;
+//        case 3:
+//        {
+//            self.regions=@[@"Gruzinska",@"Gruzinska",@"Gruzinska",@"Gruzinska"];
+//        }
+//            buf=3;
+//            break;
+//    }
+//    return buf;
+//}
+//
+//-(void)rowCity:(NSInteger)rowNumber{
+//    switch (rowNumber) {
+//        case 0:
+//        {
+//            self.citys=@[@"Zaporoziza",@"Melitopol",@"Vasilivka",@"Berdansk"];
+//        }
+//            break;
+//        case 1:
+//        {
+//            self.citys=@[@"Belarus",@"Belarus",@"Belarus",@"Belarus"];
+//        }
+//            break;
+//        case 2:
+//        {
+//            self.citys=@[@"Pols",@"Pols",@"Pols",@"Pols"];
+//        }
+//            break;
+//        case 3:
+//        {
+//            self.citys=@[@"Gruzins",@"Gruzins",@"Gruzins",@"Gruzins"];
+//        }
+//            break;
+//    }
+//}
 
 @end

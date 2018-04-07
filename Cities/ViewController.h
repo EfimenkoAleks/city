@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Country.h"
+#import "Region.h"
 
 @interface ViewController : UIViewController<UIPickerViewDataSource,UIPickerViewDelegate>
 
