@@ -9,9 +9,8 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+
 @property NSArray *countrys;
-@property NSArray *regions;
-@property NSArray *citys;
 @property NSString *strRegion,*strCity;
 @property (nonatomic) NSInteger compHeight,rowWidth;
 @property (weak, nonatomic) IBOutlet UITextField *countryTextFild;
@@ -28,35 +27,10 @@
     // Do any additional setup after loading the view, typically from a nib.
     //self.countrys=@[@"Ukraine",@"Belarus",@"Poland",@"Georgia"];
     
-    Region *zaporozhkaya=[[Region alloc]initWithName:@"Zaporozhskaya"];
-    [zaporozhkaya.nameCitys addObject:@"Zaporozhye"];
-    [zaporozhkaya.nameCitys addObject:@"Vasilevka"];
-    [zaporozhkaya.nameCitys addObject:@"Berdyansk"];
-    [zaporozhkaya.nameCitys addObject:@"Melitopol"];
+    Republic *republic=[[Republic alloc]init];
     
-    Region *dneprovska=[[Region alloc]initWithName:@"Dneprovskaya"];
-    [zaporozhkaya.nameCitys addObject:@"Dnieper"];
-    [zaporozhkaya.nameCitys addObject:@"Krivoy_Rog"];
-    [zaporozhkaya.nameCitys addObject:@"Nikopol"];
-    [zaporozhkaya.nameCitys addObject:@"Marganets"];
     
-    Region *xarkovska=[[Region alloc]initWithName:@"Kharkivska"];
-    [zaporozhkaya.nameCitys addObject:@"Kharkiv"];
-    [zaporozhkaya.nameCitys addObject:@"Chuguyev"];
-    [zaporozhkaya.nameCitys addObject:@"Izyum"];
-    [zaporozhkaya.nameCitys addObject:@"Lyubotin"];
     
-    Region *kievska=[[Region alloc]initWithName:@"Kievskaya"];
-    [zaporozhkaya.nameCitys addObject:@"Kiev"];
-    [zaporozhkaya.nameCitys addObject:@"Boryspil"];
-    [zaporozhkaya.nameCitys addObject:@"Obuhov"];
-    [zaporozhkaya.nameCitys addObject:@"Pripyat"];
-    
-    Country *ukraine=[[Country alloc]initWithName:@"Ukraine"];
-    [ukraine.nameRegions addObject:zaporozhkaya.name];
-    [ukraine.nameRegions addObject:dneprovska.name];
-    [ukraine.nameRegions addObject:xarkovska.name];
-    [ukraine.nameRegions addObject:kievska.name];
     
     self.countriPicker.dataSource=self;
     self.countriPicker.delegate=self;
@@ -76,43 +50,48 @@
 
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
     NSInteger count=0;
+    Republic *republic=[[Republic alloc]init];
     if(component==0){
-        count= self.countrys.count;
+        count= republic.nameCountrys.count;
     }
     if(component==1){
-        count= self.regions.count;
+        count= republic.country.nameRegions.count;
     }
     if(component==2){
-        count= self.citys.count;
+        count= republic.region.nameCitys.count;
     }
     return count;
 }
 
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
     NSString *rowv;
+    Republic *republic=[[Republic alloc]init];
+   
     if(component==0){
-        rowv= self.countrys[row];
+        rowv= republic.nameCountrys[row];
+       
 //        [self rowRegion:self.rowWidth];
 //        [self rowCity:[self rowRegion:self.rowWidth]];
     }
     if(component==1){
-         rowv= self.regions[row];
+         rowv= republic.country.nameRegions[row];
     }
     if(component==2){
-         rowv= self.citys[row];
+         rowv= republic.region.nameCitys[row];
     }
     return rowv;
 }
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    Republic *republic=[[Republic alloc]init];
     if (component == 0) {
-        [self.countryTextFild setText:self.countrys[row]];
+        [self.countryTextFild setText:republic.nameCountrys[row]];
     }
     if (component == 1) {
-        [self.regionTextFild setText:self.regions[row]];
+        [self.regionTextFild setText:republic.country.nameRegions[row]];
     }
     if(component== 2){
-        [self.cityTextFild setText:self.citys[row]];
+        [self.cityTextFild setText:republic.region.nameCitys[row]];
     }
 }
 
