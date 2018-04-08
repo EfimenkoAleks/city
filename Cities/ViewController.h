@@ -7,12 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Republic.h"
-#import "Country.h"
 
 @interface ViewController : UIViewController<UIPickerViewDataSource,UIPickerViewDelegate>
-
-@property (nonatomic) Republic *republic;
 
 @end
 

@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		044840482079212C00CCBD61 /* Country.m in Sources */ = {isa = PBXBuildFile; fileRef = 044840472079212C00CCBD61 /* Country.m */; };
-		0448404B207923D800CCBD61 /* Region.m in Sources */ = {isa = PBXBuildFile; fileRef = 0448404A207923D800CCBD61 /* Region.m */; };
-		0448404E207940BB00CCBD61 /* Republic.m in Sources */ = {isa = PBXBuildFile; fileRef = 0448404D207940BB00CCBD61 /* Republic.m */; };
 		047F7BDE2073AA1C00901E8D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 047F7BDD2073AA1C00901E8D /* AppDelegate.m */; };
 		047F7BE12073AA1C00901E8D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047F7BE02073AA1C00901E8D /* ViewController.m */; };
 		047F7BE42073AA1C00901E8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047F7BE22073AA1C00901E8D /* Main.storyboard */; };
@@ -19,12 +16,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		044840462079212C00CCBD61 /* Country.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Country.h; sourceTree = "<group>"; };
-		044840472079212C00CCBD61 /* Country.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Country.m; sourceTree = "<group>"; };
-		04484049207923D800CCBD61 /* Region.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Region.h; sourceTree = "<group>"; };
-		0448404A207923D800CCBD61 /* Region.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Region.m; sourceTree = "<group>"; };
-		0448404C207940BB00CCBD61 /* Republic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Republic.h; sourceTree = "<group>"; };
-		0448404D207940BB00CCBD61 /* Republic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Republic.m; sourceTree = "<group>"; };
 		047F7BD92073AA1C00901E8D /* Cities.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cities.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		047F7BDC2073AA1C00901E8D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		047F7BDD2073AA1C00901E8D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -76,12 +67,6 @@
 				047F7BE72073AA1C00901E8D /* LaunchScreen.storyboard */,
 				047F7BEA2073AA1C00901E8D /* Info.plist */,
 				047F7BEB2073AA1C00901E8D /* main.m */,
-				044840462079212C00CCBD61 /* Country.h */,
-				044840472079212C00CCBD61 /* Country.m */,
-				04484049207923D800CCBD61 /* Region.h */,
-				0448404A207923D800CCBD61 /* Region.m */,
-				0448404C207940BB00CCBD61 /* Republic.h */,
-				0448404D207940BB00CCBD61 /* Republic.m */,
 			);
 			path = Cities;
 			sourceTree = "<group>";
@@ -159,10 +144,7 @@
 			files = (
 				047F7BE12073AA1C00901E8D /* ViewController.m in Sources */,
 				047F7BEC2073AA1C00901E8D /* main.m in Sources */,
-				0448404B207923D800CCBD61 /* Region.m in Sources */,
 				047F7BDE2073AA1C00901E8D /* AppDelegate.m in Sources */,
-				044840482079212C00CCBD61 /* Country.m in Sources */,
-				0448404E207940BB00CCBD61 /* Republic.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
